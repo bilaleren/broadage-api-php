@@ -1,0 +1,43 @@
+{
+    "name": "bilaleren/broadage-api",
+    "description": "Broadage Sports provides comprehensive sports data API solutions for your projects.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^7.1.3",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "7.0"
+    },
+    "homepage": "https://github.com/bilaleren/broadage-api-php.git",
+    "keywords": [
+        "Sports api",
+        "Soccer api",
+        "Volleybol api",
+        "Baseball api",
+        "Football api",
+        "Handball api",
+        "Volleyball api",
+        "Ice hockey api",
+        "Broadage",
+        "Broadage api"
+    ],
+    "authors": [
+        {
+            "name": "Bilal EREN",
+            "email": "bilal@webnoi.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BroadAgeApi\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "minimum-stability": "beta"
+}
