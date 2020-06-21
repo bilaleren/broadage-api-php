@@ -7,13 +7,15 @@ use BroadAgeApi\Sport\Football\MatchList;
 use BroadAgeApi\Sport\Football\Tournament;
 use BroadAgeApi\Exception\InvalidDateFormatException;
 
-final class Football {
+final class Football
+{
 
     /**
      * @param int|null $tournamentId
      * @return Tournament
      */
-    public function tournament(int $tournamentId = null) {
+    public function tournament(?int $tournamentId = null): Tournament
+    {
         return new Tournament($tournamentId);
     }
 
@@ -22,7 +24,8 @@ final class Football {
      * @return MatchList
      * @throws InvalidDateFormatException
      */
-    public function matchList(string $date = null) {
+    public function matchList(?string $date = null): MatchList
+    {
         return new MatchList($date);
     }
 
@@ -30,7 +33,8 @@ final class Football {
      * @param int $matchId
      * @return Match
      */
-    public function match(int $matchId) {
+    public function match(int $matchId): Match
+    {
         return new Match($matchId);
     }
 

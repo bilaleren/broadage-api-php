@@ -73,7 +73,7 @@ $leaderBoard->redCards();
 #### Match List
 
 ```php
-$matchList = $soccer->matchList(/* $date / null */);
+$matchList = $soccer->matchList(/* $date | null */);
 ```
 
 ##### All - [View Broadage Docs](https://www.broadage.com/developers/soccer-api/match-list-all)

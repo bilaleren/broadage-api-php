@@ -43,7 +43,7 @@ $tournament->standings();
 #### Match List
 
 ```php
-$matchList = $iceHockey->matchList(/* $date / null */);
+$matchList = $iceHockey->matchList(/* $date | null */);
 ```
 
 ##### All - [View Broadage Docs](https://www.broadage.com/developers/ice-hockey-api/match-list-all)

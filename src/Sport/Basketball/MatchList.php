@@ -2,21 +2,23 @@
 
 namespace BroadAgeApi\Sport\Basketball;
 
+use BroadAgeApi\Util\Response;
 use BroadAgeApi\BroadAgeApiClient;
-use BroadAgeApi\Exception\ApiRequestException;
+use BroadAgeApi\Exception\RequestException;
 use BroadAgeApi\Exception\InvalidDateFormatException;
 use function BroadAgeApi\verifyDate;
 
-final class MatchList extends BroadAgeApiClient {
+final class MatchList extends BroadAgeApiClient
+{
 
     protected $baseURL = '/basketball/match/';
 
     /**
-     * MatchList constructor.
      * @param string | null $date
      * @throws InvalidDateFormatException
      */
-    public function __construct(string $date = null) {
+    public function __construct(?string $date = null)
+    {
         parent::__construct();
 
         if (is_null($date))
@@ -30,40 +32,44 @@ final class MatchList extends BroadAgeApiClient {
     /**
      * Provides the daily match list in active season and includes scheduled, live and finished matches.
      * @link https://www.broadage.com/developers/basketball-api/match-list-all
-     * @return object | array | string
-     * @throws ApiRequestException
+     * @return Response
+     * @throws RequestException
      */
-    public function all() {
+    public function all(): Response
+    {
         return $this->call('list');
     }
 
     /**
      * Provides only the daily scheduled match list in active season.
      * @link https://www.broadage.com/developers/basketball-api/match-list-scheduled
-     * @return object | array | string
-     * @throws ApiRequestException
+     * @return Response
+     * @throws RequestException
      */
-    public function scheduled() {
+    public function scheduled(): Response
+    {
         return $this->call('list/scheduled');
     }
 
     /**
      * Provides only the daily live match list in active season.
      * @link https://www.broadage.com/developers/basketball-api/match-list-live
-     * @return object | array | string
-     * @throws ApiRequestException
+     * @return Response
+     * @throws RequestException
      */
-    public function live() {
+    public function live(): Response
+    {
         return $this->call('list/live');
     }
 
     /**
      * Provides the daily results in active season.
      * @link https://www.broadage.com/developers/basketball-api/match-list-results
-     * @return object | array | string
-     * @throws ApiRequestException
+     * @return Response
+     * @throws RequestException
      */
-    public function results() {
+    public function results(): Response
+    {
         return $this->call('list/results');
     }
 

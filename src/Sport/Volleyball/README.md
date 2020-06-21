@@ -43,7 +43,7 @@ $tournament->standings();
 #### Match List
 
 ```php
-$matchList = $volleyball->matchList(/* $date / null */);
+$matchList = $volleyball->matchList(/* $date | null */);
 ```
 
 ##### All - [View Broadage Docs](https://www.broadage.com/developers/volleyball-api/match-list-all)

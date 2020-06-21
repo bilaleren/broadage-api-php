@@ -20,6 +20,8 @@ class SetupTest extends TestCase {
             'subscriptionKey' => ''
         ]);
 
+        $this->assertThat();
+
         $this->throwException(new InvalidArgumentException);
 
         BroadAgeApi::soccer()->tournament();

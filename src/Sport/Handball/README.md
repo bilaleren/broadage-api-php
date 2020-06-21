@@ -43,7 +43,7 @@ $tournament->standings();
 #### Match List
 
 ```php
-$matchList = $handball->matchList(/* $date / null */);
+$matchList = $handball->matchList(/* $date | null */);
 ```
 
 ##### All - [View Broadage Docs](https://www.broadage.com/developers/handball-api/match-list-all)

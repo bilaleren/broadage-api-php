@@ -11,14 +11,17 @@ use BroadAgeApi\Exception\InvalidDateFormatException;
  * @return string
  * @throws InvalidDateFormatException
  */
-function verifyDate(string $date, $format = 'd/m/Y') {
+function verifyDate(string $date, string $format = 'd/m/Y'): string
+{
     $dateTime = DateTime::createFromFormat($format, $date);
+    $lastErrors = DateTime::getLastErrors();
+    $errorCount = (int) $lastErrors['error_count'];
+    $warningCount = (int) $lastErrors['warning_count'];
 
-    $dateTimeErrors = DateTime::getLastErrors();
-
-    if (!$dateTime || ($dateTimeErrors['warning_count'] + $dateTimeErrors['error_count']) > 0) {
+    if (!($dateTime instanceof DateTime) || ($errorCount + $warningCount) > 0) {
         throw new InvalidDateFormatException(
-            "The date must be in {$format} format."
+            "The date must be in {$format} format.",
+            400
         );
     }
 

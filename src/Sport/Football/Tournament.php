@@ -2,15 +2,21 @@
 
 namespace BroadAgeApi\Sport\Football;
 
+use BroadAgeApi\Util\Response;
 use InvalidArgumentException;
 use BroadAgeApi\BroadAgeApiClient;
-use BroadAgeApi\Exception\ApiRequestException;
+use BroadAgeApi\Helper\CheckArgumentTrait;
+use BroadAgeApi\Exception\RequestException;
 
-final class Tournament extends BroadAgeApiClient {
+final class Tournament extends BroadAgeApiClient
+{
+
+    use CheckArgumentTrait;
 
     protected $baseURL = '/football/tournament/';
 
-    public function __construct(int $tournamentId = null) {
+    public function __construct(?int $tournamentId = null)
+    {
         parent::__construct();
 
         if (is_int($tournamentId))
@@ -20,66 +26,63 @@ final class Tournament extends BroadAgeApiClient {
     /**
      * Provides the list of the tournaments which are supported in your global coverage.
      * @link https://www.broadage.com/developers/football-api/tournament-list
-     * @return object | array | string
-     * @throws ApiRequestException
+     * @return Response
+     * @throws RequestException
      */
-    public function all() {
+    public function all(): Response
+    {
         return $this->call('list');
     }
 
     /**
      * Provides the information about tournaments. Names, Season, Stage(s).
      * @link https://www.broadage.com/developers/football-api/tournament-info
-     * @return object | array | string
-     * @throws ApiRequestException
+     * @return Response
+     * @throws RequestException
      * @throws InvalidArgumentException
      */
-    public function info() {
-        if (!isset($this->query['tournamentId']))
-            throw new InvalidArgumentException('Invalid Tournament ID provided.', 400);
-
+    public function info(): Response
+    {
+        $this->checkTournamentId();
         return $this->call('info');
     }
 
     /**
      * Provides the information about teams which are in the tournament.
      * @link https://www.broadage.com/developers/football-api/tournament-teams
-     * @return object | array | string
-     * @throws ApiRequestException
+     * @return Response
+     * @throws RequestException
      * @throws InvalidArgumentException
      */
-    public function teams() {
-        if (!isset($this->query['tournamentId']))
-            throw new InvalidArgumentException('Invalid Tournament ID provided.', 400);
-
+    public function teams(): Response
+    {
+        $this->checkTournamentId();
         return $this->call('teams');
     }
 
     /**
      * Provides the match list of the tournaments and works only for active season.
      * @link https://www.broadage.com/developers/football-api/tournament-fixture
-     * @return object | array | string
-     * @throws ApiRequestException
+     * @return Response
+     * @throws RequestException
      * @throws InvalidArgumentException
      */
-    public function fixture() {
-        if (!isset($this->query['tournamentId']))
-            throw new InvalidArgumentException('Invalid Tournament ID provided.', 400);
-
+    public function fixture(): Response
+    {
+        $this->checkTournamentId();
         return $this->call('fixture');
     }
 
     /**
      * Standings endpoint serves league tables in overall, home and away formats.
      * @link https://www.broadage.com/developers/football-api/tournament-standings
-     * @return object | array | string
-     * @throws ApiRequestException
+     * @return Response
+     * @throws RequestException
      * @throws InvalidArgumentException
      */
-    public function standings() {
-        if (!isset($this->query['tournamentId']))
-            throw new InvalidArgumentException('Invalid Tournament ID provided.', 400);
-
+    public function standings(): Response
+    {
+        $this->checkTournamentId();
         return $this->call('standings');
     }
 

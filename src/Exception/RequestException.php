@@ -4,4 +4,7 @@ namespace BroadAgeApi\Exception;
 
 use Exception;
 
-class ApiRequestException extends Exception { }
+class RequestException extends Exception
+{
+
+}

@@ -4,4 +4,7 @@ namespace BroadAgeApi\Exception;
 
 use Exception;
 
-class InvalidDateFormatException extends Exception { }
+class InvalidDateFormatException extends Exception
+{
+
+}

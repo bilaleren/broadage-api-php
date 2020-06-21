@@ -9,13 +9,15 @@ use BroadAgeApi\Sport\Basketball\Tournament;
 use BroadAgeApi\Sport\Basketball\LeaderBoard;
 use BroadAgeApi\Exception\InvalidDateFormatException;
 
-final class Basketball {
+final class Basketball
+{
 
     /**
      * @param int | null $tournamentId
      * @return Tournament
      */
-    public function tournament(int $tournamentId = null) {
+    public function tournament(?int $tournamentId = null): Tournament
+    {
         return new Tournament($tournamentId);
     }
 
@@ -23,7 +25,8 @@ final class Basketball {
      * @param int $tournamentId
      * @return LeaderBoard
      */
-    public function leaderBoard(int $tournamentId) {
+    public function leaderBoard(int $tournamentId): LeaderBoard
+    {
         return new LeaderBoard($tournamentId);
     }
 
@@ -32,7 +35,8 @@ final class Basketball {
      * @return MatchList
      * @throws InvalidDateFormatException
      */
-    public function matchList(string $date = null) {
+    public function matchList(?string $date = null): MatchList
+    {
         return new MatchList($date);
     }
 
@@ -40,7 +44,8 @@ final class Basketball {
      * @param int $matchId
      * @return Match
      */
-    public function match(int $matchId) {
+    public function match(int $matchId): Match
+    {
         return new Match($matchId);
     }
 
@@ -49,7 +54,8 @@ final class Basketball {
      * @param int | null $tournamentId
      * @return Team
      */
-    public function team(int $teamId, int $tournamentId = null) {
+    public function team(int $teamId, ?int $tournamentId = null): Team
+    {
         return new Team($teamId, $tournamentId);
     }
 

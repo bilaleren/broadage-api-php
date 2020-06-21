@@ -67,7 +67,7 @@ $leaderBoard->rebounds();
 #### Match List
 
 ```php
-$matchList = $basketball->matchList(/* $date / null */);
+$matchList = $basketball->matchList(/* $date | null */);
 ```
 
 ##### All - [View Broadage Docs](https://www.broadage.com/developers/basketball-api/match-list-all)

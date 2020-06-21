@@ -2,14 +2,17 @@
 
 namespace BroadAgeApi\Sport\Basketball;
 
+use BroadAgeApi\Util\Response;
 use BroadAgeApi\BroadAgeApiClient;
-use BroadAgeApi\Exception\ApiRequestException;
+use BroadAgeApi\Exception\RequestException;
 
-final class Team extends BroadAgeApiClient {
+final class Team extends BroadAgeApiClient
+{
 
     protected $baseURL = '/basketball/team/';
 
-    public function __construct(int $teamId, int $tournamentId = null) {
+    public function __construct(int $teamId, ?int $tournamentId = null)
+    {
         parent::__construct();
 
         $this->setTeamId($teamId);
@@ -21,20 +24,22 @@ final class Team extends BroadAgeApiClient {
     /**
      * Provides the active season squads for teams.
      * @link https://www.broadage.com/developers/basketball-api/team-squad
-     * @return object | array | string
-     * @throws ApiRequestException
+     * @return Response
+     * @throws RequestException
      */
-    public function squad() {
+    public function squad(): Response
+    {
         return $this->call('squad');
     }
 
     /**
      * Provides the all match list of the team in the active season.
      * @link https://www.broadage.com/developers/basketball-api/team-schedule
-     * @return object | array | string
-     * @throws ApiRequestException
+     * @return Response
+     * @throws RequestException
      */
-    public function schedule() {
+    public function schedule(): Response
+    {
         return $this->call('schedule');
     }
 
