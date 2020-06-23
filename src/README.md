@@ -1,29 +1,29 @@
 ## Global API Endpoints
 
 ```php
-$global = BroadAgeApi::global();
+$globalData = BroadAgeApi::globalData();
 ```
 
 #### Sports List - [View Broadage Docs](https://www.broadage.com/developers/global-api/sports-list)
 
 ```php
-$global->sportsList();
+$globalData->sportsList();
 ```
 
 #### Country List - [View Broadage Docs](https://www.broadage.com/developers/global-api/country-list)
 
 ```php
-$global->countryList();
+$globalData->countryList();
 ```
 
 #### Round List - [View Broadage Docs](https://www.broadage.com/developers/global-api/round-list)
 
 ```php
-$global->roundList();
+$globalData->roundList();
 ```
 
 #### Status List - [View Broadage Docs](https://www.broadage.com/developers/global-api/status-list)
 
 ```php
-$global->statusList();
+$globalData->statusList();
 ```

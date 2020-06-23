@@ -37,8 +37,7 @@
             "BroadAgeApi\\": "src/"
         },
         "files": [
-            "src/functions.php",
-            "src/broadage_api.php"
+            "src/functions.php"
         ]
     },
     "minimum-stability": "beta"

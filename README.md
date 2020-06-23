@@ -47,7 +47,7 @@ use function BroadAgeApi\{
 
 ## Global API
 
-- [Global API (Sports, Country, Round and Status List)](./src/GLOBAL.md)
+- [Global API (Sports, Country, Round and Status List)](./src/README.md)
 
 ## Sports
 
